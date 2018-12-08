@@ -1,0 +1,17 @@
+[Unit]
+Description=BitcoinMedal Full Node
+After=network.target
+
+[Service]
+User=BitcoinMedal
+Group=BitcoinMedal
+WorkingDirectory=~
+
+Type=forking
+PIDFile=/var/run/BitcoinMedald.pid
+
+ExecStart=/usr/bin/BitcoinMedald --config-file /etc/BitcoinMedald.conf \
+    --detach --pidfile /var/run/BitcoinMedald.pid
+
+[Install]
+WantedBy=multi-user.target

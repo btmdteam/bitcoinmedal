@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! -d "$SNAP_USER_DATA/etc" ]; then
+  mkdir $SNAP_USER_DATA/etc/
+  cp -R $SNAP/etc/BitcoinMedald.conf $SNAP_USER_DATA/etc/BitcoinMedald.conf
+fi
+
+exec "$SNAP/bin/BitcoinMedald" "$@"
